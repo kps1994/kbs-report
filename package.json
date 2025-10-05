@@ -1,0 +1,56 @@
+{
+  "name": "kbs-report",
+  "version": "1.0",
+  "description": "Playwright Report by Balasiva Kamalaselvan",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsup",
+    "release": "npm publish"
+  },
+  "bin": {
+    "kbs-report": "./dist/cli/cli.js"
+  },
+
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kps1994/kbs-report"
+  },
+  "keywords": [
+    "playwright",
+    "kbs",
+    "kbs-report",
+    "report",
+    "reporter"
+  ],
+  "author": "Balasiva Kamalaselvan",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/kps1994/kbs-report/issues"
+  },
+  "homepage": "https://github.com/kps1994/kbs-report#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.2",
+    "@types/sqlite3": "^3.1.11",
+    "tsup": "^8.4.0",
+    "typescript": "^4.9.4",
+    "marked": "^16.0.0"
+  },
+  "peerDependencies": {
+    "@playwright/test": "<2.0.0",
+    "ansi-to-html": "^0.7.2",
+    "commander": "^12.1.0",
+    "express": "^4.21.1",
+    "handlebars": "^4.7.8",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "main": "dist/kbs-report.js",
+  "module": "dist/kbs-report.mjs",
+  "types": "dist/kbs-report.d.ts"
+}
