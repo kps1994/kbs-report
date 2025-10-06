@@ -66,10 +66,10 @@ A comprehensive and visually appealing HTML report generator tailored for Playwr
 
 ### Step 1: Install Kbs Report
 
-Run the following command to install the **kbs-report** package globally:
+Run the following command to install the **kbs-report** package:
 
 ```bash
-npm install -D kbs-report
+npm install kbs-report
 ```
 
 ### Step 2: Configure in `playwright.config.ts`
@@ -80,35 +80,62 @@ Set up **Kbs Report** in your Playwright configuration file with the following e
 import { defineConfig } from "@playwright/test";
 import { KbsReportConfig } from "kbs-report";
 import * as os from "os";
-
+ 
 const reportConfig: KbsReportConfig = {
   open: process.env.CI ? "never" : "always", // default to never
   folderPath: "report-db",
   filename: "index.html",
-  logo:"logo.{png, jpg}",
-  title: "Kbs Test Report",
+  logo: "logo.{png, jpg}",
+  title: "Test Report",
   showProject: !true,
-  projectName: "Kbs-Report",
+  projectName: "project Name",
   testType: "Functional",
   authorName: os.userInfo().username,
   base64Image: false,
   stdIO: false,
   preferredTheme: "light",
-  chartType: "doughnut" | "pie";
   meta: {
     project: "Playwright",
     version: "1.0",
     description: "Playwright test report",
-    testCycle: "07051994",
     release: "5.0",
-     platform: os.type(),
+    platform: os.type(),
   },
 };
-
+ 
 export default defineConfig({
-  reporter: [["kbs-report", reportConfig]],
-  // Other Playwright configurations
+  testMatch: ["tests/CT.test.ts"],
+  // testDir: './tests', // run all tests
+  timeout: 120 * 1000,
+  fullyParallel: true,
+  //  workers: process.env.CI ? 3 : undefined,
+  projects: [
+    {
+      name: "Chrome web",
+      use: {
+        browserName: "chromium",
+        viewport: null,
+        launchOptions: {
+          channel: "msedge",
+          args: ["--start-maximized"],
+        },
+      },
+    },
+  ],
+  use: {
+    screenshot: "on",
+    // video: "on",
+    trace: "on-first-retry",
+    actionTimeout: 60 * 1000,
+  },
+  reporter: [
+    ["kbs-report", reportConfig], 
+    // ["dot"],
+    // ["html", { open: "never" }],
+  ],
+  retries: 0,
 });
+
 ```
 
 ### Configure in `playwright.config.js`
@@ -121,7 +148,7 @@ const reportConfig = {
   folderPath: "report-db",
   filename: "index.html",
   logo:"logo.{png, jpg}",
-  title: "Kbs Test Report",
+  title: "Test Report",
   showProject: !true,
   projectName: "Kbs-Report",
   testType: "e2e",
@@ -129,7 +156,6 @@ const reportConfig = {
   base64Image: false,
   stdIO: false,
   preferredTheme: "light",
-  chartType: "doughnut" | "pie";
   meta: {
     project: "Playwright",
     version: "1.0.0",

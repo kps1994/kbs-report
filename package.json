@@ -1,6 +1,5 @@
 {
   "name": "kbs-report",
-  "version": "1.0",
   "description": "Playwright Report by Balasiva Kamalaselvan",
   "scripts": {
     "tsc": "tsc",
@@ -8,9 +7,8 @@
     "release": "npm publish"
   },
   "bin": {
-    "kbs-report": "./dist/cli/cli.js"
+    "kbs-report": "dist/cli/cli.js"
   },
-
   "files": [
     "dist",
     "README.md",
@@ -18,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kps1994/kbs-report"
+    "url": "git+https://github.com/kps1994/kbs-report.git"
   },
   "keywords": [
     "playwright",
@@ -52,5 +50,6 @@
   },
   "main": "dist/kbs-report.js",
   "module": "dist/kbs-report.mjs",
-  "types": "dist/kbs-report.d.ts"
+  "types": "dist/kbs-report.d.ts",
+  "version": "1.0.0"
 }
