@@ -3,8 +3,8 @@
 A comprehensive and visually appealing HTML report generator tailored for Playwright tests. Designed with powerful features and customizable options, Kbs Report simplifies the process of reviewing and managing test results, making test reporting more intuitive and accessible.
 
 
-![Kbs Report Preview](assets/Kbs Report Dashboard.png)
-![Kbs Report Preview](assets/Kbs Report Tests.png)
+https://github.com/kps1994/kbs-report/blob/main/assets/Kbs%20Report%20Dashboard.png
+https://github.com/kps1994/kbs-report/blob/main/assets/Kbs%20Report%20Tests.png
 ---
 
 ## Key Features
